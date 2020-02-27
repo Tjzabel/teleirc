@@ -26,3 +26,14 @@ func messageHandler(tg *Client, u tgbotapi.Update) {
 
 	tg.sendToIrc(formatted)
 }
+
+/*
+joinHandler handles when users join the Telegram channel.
+*/
+func joinHandler(tg *Client, u tgbotapi.Update) {
+	username := GetUsername(u.Message.From)
+
+	formatted := username + " has joined the Telegram Group!"
+
+	tg.sendToIrc(formatted)
+}
